@@ -1,0 +1,44 @@
+--Create a beauty store table 
+
+CREATE TABLE beauty_store(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, category TEXT, popularity INTEGER);
+
+INSERT INTO beauty_store VAlUES(1, "hairbrush", 4.99, "tool", 95);
+INSERT INTO beauty_store VALUES(2, "foundation", 14.99, "makeup", 88);
+INSERT INTO beauty_store VALUES(3, "conditioner", 8.50, "hair item", 92);
+INSERT INTO beauty_store VALUES(4, "lipstick", 17.99, "makeup", 55);
+INSERT INTO beauty_store VALUES(5, "mascara", 19.99, "makeup", 80);
+INSERT INTO beauty_store VALUES(6, "scunchie", 18.99, "hair item", 45);
+INSERT INTO beauty_store VALUES(7, "powder", 24.99, "makeup", 78); 
+INSERT INTO beauty_store VALUES(8, "shampoo", 16.50, "hair item", 98); 
+INSERT INTO beauty_store VALUES(9, "blush",
+28.50, "makeup", 64); 
+INSERT INTO beauty_store VALUES(10, "lotion", 17.50, "skincare", 60);
+INSERT INTO beauty_store VALUES(11, "makeup wipes", 7.50, "skincare", 35);
+INSERT INTO beauty_store VALUES(12, "makeup brushes", 29.99, "tool", 73);
+INSERT INTO beauty_store VALUES(13, "moisturizer", 12.50, "skincare", 82); 
+INSERT INTO beauty_store VALUES(14, "bronzer", 29.99, "makeup", 33);  
+INSERT INTO beauty_store VALUES(15, "detangler", 6.50, "hair item", 25);
+
+--Display the database ordered by price. 
+SELECT * FROM beauty_store 
+ORDER BY price DESC;
+
+--What are the top 7 popular items?
+SELECT name, price, popularity
+FROM beauty_store
+ORDER BY popularity desc 
+LIMIT 7;
+
+--What is the most expensive item?
+SELECT MAX(price)
+FROM beauty_store;
+
+--What is the avg price of the makeup items?
+SELECT AVG(price)
+FROM beauty_store 
+WHERE category = "makeup";
+
+--What is the sum of the skincare items?
+SELECT SUM(price)
+FROM beauty_store 
+WHERE category = "skincare"
