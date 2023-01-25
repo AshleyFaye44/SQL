@@ -1,0 +1,25 @@
+CREATE TABLE singers (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, gender TEXT, state TEXT); 
+INSERT INTO singers VALUES(1, "Keith Urban", 55, "male", "Queensland");
+INSERT INTO singers VALUES(2, "Carrie Underwood", 39, "female", "Oklahoma");
+INSERT INTO singers VALUES(3, "Morgan Wallen", 29, "male", "Tennessee");
+INSERT INTO singers VALUES(4, "Rob Thomas", 50, "male", "Georgia"); 
+INSERT INTO singers VALUES (5, "Tom DeLonge", 47, "male", "California");
+INSERT INTO singers VALUES (6, "Randy Travis", 47, "male", "North Carolina");
+INSERT INTO singers VALUES (7, "Taylor Swift", 33, "female", "Pennsylvania");
+INSERT INTO singers VALUES (8, "Zach Bryan", 26, "male", "Oklahoma");
+
+CREATE TABLE SONGS (id INTEGER PRIMARY KEY, singers_id INTEGER, song_name TEXT, year_released INTEGER); 
+INSERT INTO songs VALUES (1, 1, "Somebody Like You", 2002);
+INSERT INTO songs VALUES (2, 7, "Bad Blood", 2014);
+INSERT INTO songs VALUES (3, 2, "Before He Cheats", 2005);
+INSERT INTO songs VALUES (4, 5, "All the Small Things", 1999);
+INSERT INTO songs VALUES (5, 3, "Thought You Should Know", 2022);
+INSERT INTO songs VALUES (6, 8, "Something in the Orange", 2022);
+INSERT INTO songs VALUES (7, 4, "Unwell", 2002); 
+INSERT INTO songs VALUES (8, 6, "Forever and Ever, Amen", 1987);
+
+--Using JOIN in order to take the name of the artist from one table and the song they sing from another and combining them to make a new table--
+SELECT singers.name, songs.song_name 
+FROM singers 
+JOIN songs 
+ON singers.id = songs.singers_id 
